@@ -3,9 +3,14 @@ import './App.scss';
 import { FormContainer } from './components/FormContainer';
 
 function App() {
+	const submit = values => {
+		// eslint-disable-next-line no-alert
+		alert(JSON.stringify(values));
+	};
+
 	return (
 		<div className="App">
-			<FormContainer />
+			<FormContainer submit={submit} />
 		</div>
 	);
 }

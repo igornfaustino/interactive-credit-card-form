@@ -3,12 +3,14 @@ import './FormContainer.scss';
 import { Card } from './Card';
 import { cardMasker, dateMasker } from '../utils/masks';
 
-export const FormContainer = () => {
+export const FormContainer = ({ submit }) => {
 	const [number, setNumber] = useState('');
 	const [fullname, setFullname] = useState('');
 	const [date, setDate] = useState('');
 	const [cvv, setCvv] = useState('');
 	const [focus, setFocus] = useState('');
+
+	const handleSubmit = () => submit({ number, fullname, date, cvv });
 
 	return (
 		<div className="form-container">
@@ -19,7 +21,7 @@ export const FormContainer = () => {
 				cvv={cvv}
 				focus={focus}
 			/>
-			<form className="content">
+			<form className="content" onSubmit={handleSubmit}>
 				<div>
 					<label htmlFor="number">
 						Number
