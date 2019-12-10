@@ -35,6 +35,8 @@ export const Card = ({ number, fullname, date, cvv, focus }) => {
 		}
 	}, [number]);
 
+	console.log(cardType);
+
 	const CardNumber = useMemo(
 		() =>
 			NUMBER_PLACEHOLDER.split('').map((n, idx) => {

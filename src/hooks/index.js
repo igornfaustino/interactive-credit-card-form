@@ -31,8 +31,6 @@ export const useFocusInput = input => {
 	const [position, setPosition] = useState({});
 	const { width: winWidth } = useWindowDimensions();
 
-	console.log(winWidth);
-
 	useEffect(() => {
 		switch (input) {
 			case 'number':
