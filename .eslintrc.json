@@ -1,0 +1,49 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"extends": ["eslint:recommended", "airbnb", "airbnb/hooks"],
+	"globals": {
+		"Atomics": "readonly",
+		"SharedArrayBuffer": "readonly"
+	},
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2018,
+		"sourceType": "module"
+	},
+	"plugins": ["react", "prettier"],
+	"rules": {
+		"react/jsx-curly-newline": "off",
+        "semi": "off",
+        "operator-linebreak": "off",
+        "no-mixed-spaces-and-tabs": "off",
+		"comma-dangle": "off",
+		"implicit-arrow-linebreak": "off",
+		"react/jsx-filename-extension": "off",
+		"arrow-parens": "off",
+		"indent": "off",
+		"react/jsx-indent": "off",
+		"import/prefer-default-export": "off",
+		"no-tabs": "off",
+		"prettier/prettier": "error",
+		"no-unused-vars": [
+			"warn",
+			{
+				"argsIgnorePattern": "^_"
+			}
+		],
+		"react/jsx-one-expression-per-line": "off",
+		"object-curly-newline": "off",
+		"react/jsx-wrap-multilines": "off",
+		"jsx-a11y/click-events-have-key-events": "off",
+		"jsx-a11y/no-static-element-interactions": "off",
+		"react/jsx-indent-props": ["error", "tab"],
+		"func-names": "off",
+		"no-use-before-define": "off",
+		"node/no-unpublished-require": "off"
+	}
+}

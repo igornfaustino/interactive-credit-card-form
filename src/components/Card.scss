@@ -1,0 +1,183 @@
+$card-height: 350px;
+$card-width: 600px;
+
+.card {
+	background-color: transparent;
+	// border: 1px solid #f1f1f1;
+	position: absolute;
+	display: block;
+	height: $card-height;
+	width: $card-width;
+	top: -30%;
+	// transform: translateY(50%);
+	left: 50%;
+	transform: translateX(-50%);
+	perspective: 1000px;
+}
+
+.card__inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+
+	&--front,
+	&--back {
+		border-radius: 20px;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		backface-visibility: hidden;
+		box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+			0 10px 10px rgba(0, 0, 0, 0.22);
+	}
+
+	&--front {
+		height: $card-height;
+		.card-padding {
+			position: relative;
+			background-color: #444;
+			height: 100%;
+			border-radius: 20px;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+
+			.chip {
+				grid-column: 1;
+				grid-row: 1;
+				width: 80px;
+				height: 60px;
+				margin-top: 20px;
+				margin-left: 20px;
+			}
+
+			.card-logo {
+				grid-column: 4;
+				grid-row: 1;
+				justify-self: end;
+				width: 100px;
+				height: 55px;
+				margin-top: 20px;
+				margin-right: 20px;
+			}
+
+			.number {
+				grid-row: 2;
+				grid-column: span 4;
+				font-size: 36px;
+				align-self: center;
+				word-spacing: 30px;
+				text-align: center;
+				color: #fff;
+			}
+
+			.name {
+				grid-row: 3;
+				grid-column: span 3;
+				font-size: 28px;
+				color: #fff;
+				text-align: left;
+				width: 100%;
+				align-self: center;
+				padding: 5px;
+				margin: 20px;
+				// text-align: center;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				text-transform: uppercase;
+			}
+
+			.date {
+				grid-row: 3;
+				grid-column: 4;
+				color: #fff;
+				font-size: 24px;
+				justify-self: end;
+				align-self: center;
+				border: solid 2px rgba(#fff, 0);
+				padding: 5px;
+				margin: 20px;
+
+				.date-label {
+					font-size: 12px;
+				}
+			}
+		}
+	}
+
+	&--back {
+		background-color: #444;
+		transform: rotateY(180deg);
+
+		.black-line {
+			width: 100%;
+			height: 15%;
+			background-color: black;
+			margin-top: 20px;
+		}
+
+		.white-line {
+			display: block;
+			margin: auto;
+			border-radius: 5px;
+			margin-top: 30px;
+			width: 90%;
+			height: 20%;
+			background-color: white;
+			position: relative;
+
+			.cvv {
+				position: absolute;
+				right: 20px;
+				top: 50%;
+				transform: translateY(-50%);
+				font-size: 20px;
+
+				.cvv-label {
+					font-size: 12px;
+				}
+			}
+		}
+	}
+}
+
+.card__inner-flip {
+	transform: rotateY(180deg);
+}
+
+.focus {
+	transition: all 300ms ease-in;
+	border: solid 2px #fff;
+	position: absolute;
+	width: $card-width;
+	height: $card-height;
+	border-radius: 10px;
+
+	&-disable {
+		transform: scale(1.5);
+		opacity: 0;
+		width: $card-width;
+		height: $card-height;
+	}
+
+	&-enable {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.number-enter {
+	opacity: 0.01;
+	height: 100%;
+	transform: translateY(10px);
+}
+
+.number-enter.number-enter-active {
+	opacity: 1;
+	transform: translateY(0);
+	transition: all 300ms ease-in-out;
+}
